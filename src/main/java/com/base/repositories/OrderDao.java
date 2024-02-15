@@ -1,4 +1,4 @@
-package com.base.repo;
+package com.base.repositories;
 
 import com.base.domain.Order;
 import org.springframework.stereotype.Repository;

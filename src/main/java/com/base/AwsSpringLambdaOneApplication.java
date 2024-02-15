@@ -1,7 +1,7 @@
 package com.base;
 
 import com.base.domain.Order;
-import com.base.repo.OrderDao;
+import com.base.repositories.OrderDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,10 +34,4 @@ public class AwsSpringLambdaOneApplication {
                 .filter(order -> order.getName().equals(input))
                 .collect(Collectors.toList());
     }
-
-    @Bean
-    public Function<String, String> reverse() {
-        return s -> new StringBuilder(s).reverse().toString();
-    }
-
 }
