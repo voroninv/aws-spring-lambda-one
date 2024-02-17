@@ -1,9 +1,9 @@
 package com.base.repositories;
 
-import com.base.entities.Image;
+import com.base.entities.ImageData;
 import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.data.repository.CrudRepository;
 
 @EnableScan
-public interface ImageRepository extends CrudRepository<Image, Integer> {
+public interface ImageDataRepository extends CrudRepository<ImageData, Integer> {
 }
