@@ -39,20 +39,23 @@ jobs:
           aws-region: eu-north-1
 
       - name: Create AWS Lambda Function
-        run: aws lambda create-function \ 
-             --function-name imageFunction \
-             --runtime java17 \
-             --handler org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest \ 
-             --role arn:aws:iam::637423326346:role/imageFunctionRole \
-             --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
+        run: |
+          aws lambda create-function \
+          --function-name imageFunction \
+          --runtime java17 \
+          --handler org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest \ 
+          --role arn:aws:iam::637423326346:role/imageFunctionRole \
+          --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
         continue-on-error: true
 
       - name: Update AWS Lambda Function
-        run: aws lambda update-function-code \ 
-             --function-name imageFunction  
-             --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
+        run: |
+          aws lambda update-function-code \ 
+          --function-name imageFunction \
+          --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
 
       - name: Setup S3 trigger
-        run: aws s3api put-bucket-notification \ 
-             --bucket eu-north-1-images 
-             --notification-configuration file://notification.json
+        run: |
+          aws s3api put-bucket-notification \ 
+          --bucket eu-north-1-images \
+          --notification-configuration file://notification.json
