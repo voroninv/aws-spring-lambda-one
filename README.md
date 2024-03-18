@@ -22,6 +22,12 @@ It provides programming model for building stateless functions as microservices,
 - update handler field with org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest;
 - configure AWS S3 trigger for the lambda function.
 
+## GitHub action
+  **GitHub** workflow configured for CI/CD automation:
+- cicd configuration contains steps for testing, building and deploying function to Amazon Lambda Service.
+
+<br/>
+
 ## Libraries:
 - spring cloud function;
 - spring cloud function adapter;
