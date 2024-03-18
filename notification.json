@@ -1,0 +1,25 @@
+{
+  "LambdaFunctionConfigurations": [
+    {
+      "Id": "s3TriggerLambda",
+      "LambdaFunctionArn": "arn:aws:lambda:eu-north-1:637423326346:function:imageFunction",
+      "Events": [
+        "s3:ObjectCreated:*"
+      ],
+      "Filter": {
+        "Key": {
+          "FilterRules": [
+            {
+              "Name": "suffix",
+              "Value": "thesuffix"
+            },
+            {
+              "Name": "prefix",
+              "Value": "theprefix"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
