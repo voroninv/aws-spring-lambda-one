@@ -43,14 +43,14 @@ jobs:
           aws lambda create-function \
           --function-name imageFunction \
           --runtime java17 \
-          --handler org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest \ 
+          --handler org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest \
           --role arn:aws:iam::637423326346:role/imageFunctionRole \
           --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
         continue-on-error: true
 
       - name: Update AWS Lambda Function
         run: |
-          aws lambda update-function-code \ 
+          aws lambda update-function-code \
           --function-name imageFunction \
           --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
 
