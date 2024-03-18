@@ -56,6 +56,6 @@ jobs:
 
       - name: Setup S3 trigger
         run: |
-          aws s3api put-bucket-notification \ 
+          aws s3api put-bucket-notification \
           --bucket eu-north-1-images \
           --notification-configuration file://notification.json
