@@ -57,7 +57,7 @@ jobs:
       - name: Add Lambda permission for S3
         run: |
           aws lambda add-permission \
-          --function-name YOUR_FUNCTION_NAME \
+          --function-name imageFunction \
           --statement-id s3-trigger \
           --action lambda:InvokeFunction \
           --principal s3.amazonaws.com \
