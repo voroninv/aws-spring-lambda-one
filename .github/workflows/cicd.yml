@@ -61,7 +61,7 @@ jobs:
           --statement-id s3-trigger \
           --action lambda:InvokeFunction \
           --principal s3.amazonaws.com \
-          --source-arn arn:aws:s3:::arn:aws:s3:::eu-north-1-images \
+          --source-arn arn:aws:s3:::eu-north-1-images \
           --region eu-north-1
 
       - name: Setup S3 trigger
