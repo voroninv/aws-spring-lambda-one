@@ -1,5 +1,5 @@
 ## aws-spring-lambda-one
-A Java AWS Lambda function implmented as Spring Cloud Function and designed to effortlessly respond to AWS S3 events and store data into DynamoDB using the AWS SDK.
+Simple Spring Cloud Function designed to respond to AWS S3 events and store data to DynamoDB using the AWS SDK.
 
 <br/>
 
@@ -21,6 +21,12 @@ It provides programming model for building stateless functions as microservices,
 - build and upload jar to AWS Lambda;
 - update handler field with org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest;
 - configure AWS S3 trigger for the lambda function.
+
+## GitHub action
+  **GitHub** workflow configured for CI/CD automation:
+- cicd configuration contains steps for testing, building and deploying function to Amazon Lambda Service.
+
+<br/>
 
 ## Libraries:
 - spring cloud function;

@@ -17,7 +17,7 @@ import java.util.Objects;
 @Slf4j
 @Service
 public class ImageDataService implements IImageDataService {
-    private static final List<String> CREATE_EVENTS = List.of("ObjectCreated:Put", "ObjectCreated:Post");
+    private static final List<String> CREATE_EVENTS = List.of( "ObjectCreated:Post");
 
     @Autowired
     ImageDataRepository imageRepository;
