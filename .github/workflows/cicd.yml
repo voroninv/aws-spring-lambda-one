@@ -54,6 +54,16 @@ jobs:
           --function-name imageFunction \
           --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
 
+      - name: Add Lambda permission for S3
+        run: |
+          aws lambda add-permission \
+          --function-name YOUR_FUNCTION_NAME \
+          --statement-id s3-trigger \
+          --action lambda:InvokeFunction \
+          --principal s3.amazonaws.com \
+          --source-arn arn:aws:s3:::arn:aws:s3:::eu-north-1-images \
+          --region eu-north-1
+
       - name: Setup S3 trigger
         run: |
           aws s3api put-bucket-notification-configuration \
