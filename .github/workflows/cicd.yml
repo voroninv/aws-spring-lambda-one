@@ -48,12 +48,6 @@ jobs:
           --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
         continue-on-error: true
 
-      - name: Update AWS Lambda Function
-        run: |
-          aws lambda update-function-code \
-          --function-name imageFunction \
-          --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
-
       - name: Add Lambda permission for S3
         run: |
           aws lambda add-permission \
@@ -63,6 +57,13 @@ jobs:
           --principal s3.amazonaws.com \
           --source-arn arn:aws:s3:::eu-north-1-images \
           --region eu-north-1
+        continue-on-error: true
+
+      - name: Update AWS Lambda Function
+        run: |
+          aws lambda update-function-code \
+          --function-name imageFunction \
+          --zip-file fileb://target/aws-spring-lambda-one-0.0.1-SNAPSHOT-aws.jar
 
       - name: Setup S3 trigger
         run: |
